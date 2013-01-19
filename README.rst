@@ -21,6 +21,9 @@ send it gzipped over the wire (which brings the size down to about 1.4MB).
 Usage
 *****
 
+Development
+===========
+
 Include the following scripts (in that order) in your code:
 
 * klass.js
@@ -38,6 +41,14 @@ Include the following scripts (in that order) in your code:
 * unidecoder.js
 * jadecoder.js
 * unihandecode.js
+
+Production
+==========
+
+Include unihandecode.min.js.
+
+API
+===
 
 Now create a ``Unihandecoder`` instance for Japanese::
 
