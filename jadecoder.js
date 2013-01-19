@@ -15,3 +15,4 @@ var Jadecoder = Klass(Unidecoder)({
 		});
 	}
 });
+Unihandecoder.register('ja', Jadecoder);

@@ -9,3 +9,4 @@ var Krdecoder = Klass(Unidecoder)({
 		PY_DICT_UPDATE(self.codepoints, KRCODES);
 	}
 });
+Unihandecoder.register('kr', Krdecoder);

@@ -9,3 +9,4 @@ var Vndecoder = Klass(Unidecoder)({
 		PY_DICT_UPDATE(self.codepoints, VNCODES);
 	}
 });
+Unihandecoder.register('vn', Vndecoder);

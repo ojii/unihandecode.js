@@ -49,7 +49,17 @@ Include the following scripts (in that order) in your code:
 Production
 ==========
 
-Include unihandecode.min.js.
+Include the following:
+
+* unihandecode.data.min.js
+* unihandecode.core.min.js
+
+And the languages you need:
+
+* unihandecode.ja.min.js
+* unihandecode.zh.min.js
+* unihandecode.kr.min.js
+* unihandecode.vn.min.js
 
 API
 ===
@@ -70,6 +80,11 @@ For example to create a ``Unihandecoder`` instance for Japanese::
 You can now call ``decode`` on it with a string to transliterate, for example::
 
     u.decode('ヨナス') // -> 'yonasu'
+
+
+If you want to register other languages, use ``Unihandecoder.register`` which
+takes the language code as first argument, and a subclass of ``Unidecoder`` as
+second argument.
 
 
 ****

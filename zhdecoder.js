@@ -9,3 +9,4 @@ var Zhdecoder = Klass(Unidecoder)({
 		PY_DICT_UPDATE(self.codepoints, ZHCODES);
 	}
 });
+Unihandecoder.register('zh', Zhdecoder);
