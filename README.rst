@@ -14,6 +14,9 @@ Limitations
 
 So far, only Japanese transliteration has been ported.
 
+The full uncompressed library weights about 8MB. So you should really only ever
+send it gzipped over the wire (which brings the size down to about 1.4MB).
+
 *****
 Usage
 *****
