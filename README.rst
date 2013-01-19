@@ -45,6 +45,17 @@ You can now call ``decode`` on it with a string to transliterate, for example::
     u.decode('ヨナス') // -> 'yonasu'
 
 
+****
+Demo
+****
+
+Warning: The page is 8MBs big!
+
+http://ojii.github.com/unihandecode.js/
+
+Please wait for the page to fully load before using it.
+
+
 *******
 License
 *******
