@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<input id="input" /><button id="submit">convert</button><br >
+<span id="output"></span>
+<!--libraries-->
+<script src="klass.js"></script>
+<script src="pycompat.js"></script>
+<!--data-->
+<script src="data/itaijidict2.pickle.js"></script>
+<script src="data/kanadict2.pickle.js"></script>
+<script src="data/kanwadict2.db.js"></script>
+<!--codepoints-->
+<script src="unicodepoints.js"></script>
+<script src="jacodepoints.js"></script>
+<!--pykakasi-->
+<script src="pykakasi/kanwa.js"></script>
+<script src="pykakasi/j2h.js"></script>
+<script src="pykakasi/j2a.js"></script>
+<script src="pykakasi/k2a.js"></script>
+<script src="pykakasi/kakasi.js"></script>
+<!--unihandecode-->
+<script src="unidecoder.js"></script>
+<script src="jadecoder.js"></script>
+<script src="unihandecode.js"></script>
+<script>
+document.getElementById('submit').addEventListener('click', function(){
+    var value = document.getElementById('input').value;
+    var u = Unihandecoder('ja');
+    var result = u.decode(value);
+    document.getElementById('output').innerText = result;
+});
+</script>
+</body>
+</html>
