@@ -4,7 +4,14 @@
     <title></title>
 </head>
 <body>
-<input disabled="disabled" id="input" /><button id="submit" disabled="disabled">convert</button><br >
+<input disabled="disabled" id="input" />
+<select id="lang">
+    <option value='zh'>Chinese</option>
+    <option value='kr'>Korean</option>
+    <option value='ja' selected='selected'>Japanese</option>
+    <option value='vn'>Vietnamese</option>
+</select>
+<button id="submit" disabled="disabled">convert</button><br >
 <span id="output">Loading... Please wait...</span>
 <script src="unihandecode.min.js"></script>
 <script>
@@ -13,7 +20,8 @@ document.getElementById('submit').disabled = false;
 document.getElementById('output').innerText = '';
 document.getElementById('submit').addEventListener('click', function(){
     var value = document.getElementById('input').value;
-    var u = Unihandecoder('ja');
+    var lang = document.getElementById('lang').value;
+    var u = Unihandecoder(lang);
     var result = u.decode(value);
     document.getElementById('output').innerText = result;
 });

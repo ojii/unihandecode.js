@@ -4,8 +4,7 @@
  Copyright: 2013 Jonas Obrist <ojiidotch@gmail.com>
  */
 var Jadecoder = Klass(Unidecoder)({
-	'__init__': function(self){
-		self.codepoints = CODEPOINTS;
+	'load_codepoints': function(self){
 		PY_DICT_UPDATE(self.codepoints, JACODES);
 		self.kakasi = kakasi();
 	},
@@ -15,4 +14,4 @@ var Jadecoder = Klass(Unidecoder)({
 			return self.replace_point(x);
 		});
 	}
-})
+});

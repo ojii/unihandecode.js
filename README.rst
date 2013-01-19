@@ -12,8 +12,6 @@ library by Hiroshi Miura.
 Limitations
 ***********
 
-So far, only Japanese transliteration has been ported.
-
 The full uncompressed library weights about 8MB. So you should really only ever
 send it gzipped over the wire (which brings the size down to about 1.4MB).
 
@@ -33,6 +31,9 @@ Include the following scripts (in that order) in your code:
 * data/kanwadict2.db.js
 * unicodepoints.js
 * jacodepoints.js
+* zhcodepoints.js
+* krcodepoints.js
+* vncodepoints.js
 * pykakasi/kanwa.js
 * pykakasi/j2h.js
 * pykakasi/j2a.js
@@ -40,6 +41,9 @@ Include the following scripts (in that order) in your code:
 * pykakasi/kakasi.js
 * unidecoder.js
 * jadecoder.js
+* zhdecoder.js
+* krdecoder.js
+* vndecoder.js
 * unihandecode.js
 
 Production
@@ -50,7 +54,16 @@ Include unihandecode.min.js.
 API
 ===
 
-Now create a ``Unihandecoder`` instance for Japanese::
+To decode text, you need to create an instance of ``Unihandecoder``. This class
+takes the language ('ja', 'zh', 'kr' or 'vn') as first argument, and optionally
+a flag as second argument which can be set to true for debugging. If debugging
+is enabled, some errors will cause the script to fail, while when debugging is
+turned off, errors fail silently.
+
+Instances of ``Unihandecoder`` have a single method, ``decode``, which takes a
+string as argument and returns the transliterated string.
+
+For example to create a ``Unihandecoder`` instance for Japanese::
 
     var u = Unihandecoder('ja');
 

@@ -4,23 +4,27 @@
  Copyright: 2013 Jonas Obrist <ojiidotch@gmail.com>
  */
 var Unihandecoder = Klass()({
-	'__init__': function(self, lang, encoding){
-		self.lang = lang || 'zh';
-		self.encoding = encoding || 'utf-8';
+	'__init__': function(self, lang, debug){
+		var klass;
+		self.lang = lang;
+		self.debug = debug || false;
 		switch (self.lang){
 			case 'ja':
-				self.decoder = Jadecoder();
+				klass = Jadecoder;
 				break;
 			case 'kr':
-				self.decoder = Krdecoder();
+				klass = Krdecoder;
 				break;
 			case 'vn':
-				self.decoder = Vndecoder();
+				klass = Vndecoder;
+				break;
+			case 'zh':
+				klass = Zhdecoder;
 				break;
 			default:
-				self.decoder = Unidecoder();
-				break;
+				throw Error("You must define a valid language, valid languages are: 'ja', 'kr', 'vn' and 'zh'.")
 		}
+		self.decoder = klass(self.debug);
 	},
 	'decode': function(self, text){
 		// normalize
