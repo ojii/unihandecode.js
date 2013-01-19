@@ -34,7 +34,7 @@ var kakasi = Klass()({
 		};
 	},
 
-	'do': function(self, text){
+	'convert': function(self, text){
 		var tmp, t, l;
 		var otext = '';
 		var i = 0;

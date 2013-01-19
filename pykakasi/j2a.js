@@ -34,8 +34,8 @@ var J2a = Klass()({
 		self._kconv = K2a();
 	},
 
-	'canConvert': function(self, char){
-		return self._jconv.canConvert(char);
+	'canConvert': function(self, character){
+		return self._jconv.canConvert(character);
 	},
 
 	'convert': function(self, text){

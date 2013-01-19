@@ -10,7 +10,7 @@ var Jadecoder = Klass(Unidecoder)({
 		self.kakasi = kakasi();
 	},
 	'decode': function(self, text){
-		var result = self.kakasi.do(text);
+		var result = self.kakasi.convert(text);
 		return result.replace(/[^\x00-\x7f]/, function(x){
 			return self.replace_point(x);
 		});

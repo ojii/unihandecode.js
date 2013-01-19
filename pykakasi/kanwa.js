@@ -18,8 +18,8 @@ var kanwa = Klass()({
 		return self._itaijidict[key];
 	},
 
-	'load': function(self, char){
-		var key = char.charCodeAt(0).toString(16);
+	'load': function(self, character){
+		var key = character.charCodeAt(0).toString(16);
 		while (key.length < 4){
 			key = '0' + key;
 		}
