@@ -2,7 +2,7 @@
  License: GPL3
  Copyright: 2013 Jonas Obrist <ojiidotch@gmail.com>
  */
-function PY_DICT_UPDATE(a, b){PY_STR_STARTSWITH
+function PY_DICT_UPDATE(a, b){
 	for (var key in b){
 		if (b.hasOwnProperty(key)){
 			a[key] = b[key];
