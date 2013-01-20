@@ -39,7 +39,7 @@ var K2a = Klass()({
 		var max_len = -1;
 		var r = PY_MIN(self._kanadict.maxkeylen, text.length);
 		for (var x = 1; x <= r; x++){
-			if (self._kanadict.haskey(text.slice(0, x))){
+			if (self._kanadict.hasOwnProperty(text.slice(0, x))){
 				if (max_len < x){
 					max_len = x;
 					Hstr = self._kanadict[text.slice(0, x)];
