@@ -25,6 +25,9 @@ var UnihandecodeJSTests = Klass(unittest.Suite)({
 	'test_vietnamese': function(self){
 		self.assertDecodes('vn', 'tiếng Việt', 'tieng Viet');
 	},
+	'test_diacritic': function(self){
+		self.assertDecodes('diacritic', 'öäüéàèç', 'oaueaec');
+	},
 	'test_invalid_language': function(self){
 		self.assertRaises(function(){
 			Unihandecoder('!XX');
