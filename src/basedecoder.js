@@ -34,7 +34,7 @@ var BaseDecoder = Klass()({
 		while (key.length < 2){
 			key = '0' + key;
 		}
-		return 'x' + key;
+		return key;
 	},
 
 	'grouped_point': function(self, character){

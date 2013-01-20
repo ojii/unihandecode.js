@@ -3,6 +3,7 @@ JAPANESE=$(SOURCEDIR)ja/*.js $(SOURCEDIR)ja/jskakasi/data/*.js $(SOURCEDIR)ja/js
 CHINESE=$(SOURCEDIR)zh/*.js
 KOREAN=$(SOURCEDIR)kr/*.js
 VIETNAMESE=$(SOURCEDIR)vn/*.js
+DIACRITIC=$(SOURCEDIR)diacritic/*.js
 CORE=$(SOURCEDIR)libs/*js $(SOURCEDIR)base/*.js $(SOURCEDIR)basedecoder.js $(SOURCEDIR)unihandecode.js
 OUTDIR=dist/
 CORE_OUTFILE=$(OUTDIR)unihandecode.core.min.js
@@ -10,10 +11,11 @@ JA_OUTFILE=$(OUTDIR)unihandecode.ja.min.js
 ZH_OUTFILE=$(OUTDIR)unihandecode.zh.min.js
 KR_OUTFILE=$(OUTDIR)unihandecode.kr.min.js
 VN_OUTFILE=$(OUTDIR)unihandecode.vn.min.js
+DIACRITIC_OUTFILE=$(OUTDIR)unihandecode.diacritic.min.js
 COMPRESSOR=yui-compressor
 COMPRESSOR_FLAGS=--type js
 
-all: core ja zh kr vn
+all: core ja zh kr vn diacritic
 
 core:
 	cat $(HELPERS) $(CORE) | $(COMPRESSOR) $(COMPRESSOR_FLAGS) > $(CORE_OUTFILE) 
@@ -29,6 +31,9 @@ kr:
 
 vn:
 	cat $(VIETNAMESE) | $(COMPRESSOR) $(COMPRESSOR_FLAGS) > $(VN_OUTFILE)
+
+diacritic:
+	cat $(DIACRITIC) | $(COMPRESSOR) $(COMPRESSOR_FLAGS) > $(DIACRITIC_OUTFILE)
 
 clean:
 	rm $(RMFLAGS) $(CORE_OUTFILE)

@@ -1,34 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>Unihandecode.js - Demo</title>
 </head>
 <body>
-<input disabled="disabled" id="input" />
-<select id="lang">
+<input id="input" disabled="disabled" />
+<select id="lang" disabled="disabled">
     <option value='zh'>Chinese</option>
     <option value='kr'>Korean</option>
     <option value='ja' selected='selected'>Japanese</option>
     <option value='vn'>Vietnamese</option>
+    <option value='diacritic'>Diacritic</option>
 </select>
-<button id="submit" disabled="disabled">convert</button><br >
+<br />
 <span id="output">Loading... Please wait...</span>
 <script src="dist/unihandecode.core.min.js"></script>
 <script src="dist/unihandecode.ja.min.js"></script>
 <script src="dist/unihandecode.zh.min.js"></script>
 <script src="dist/unihandecode.kr.min.js"></script>
 <script src="dist/unihandecode.vn.min.js"></script>
+<script src="dist/unihandecode.diacritic.min.js"></script>
 <script>
-document.getElementById('input').disabled = false;
-document.getElementById('submit').disabled = false;
-document.getElementById('output').innerText = '';
-document.getElementById('submit').addEventListener('click', function(){
-    var value = document.getElementById('input').value;
-    var lang = document.getElementById('lang').value;
-    var u = Unihandecoder(lang);
-    var result = u.decode(value);
-    document.getElementById('output').innerText = result;
-});
+    var input = document.getElementById('input');
+    var output = document.getElementById('output');
+    var lang = document.getElementById('lang');
+    input.disabled = false;
+    lang.disabled = false;
+    output.innerText = '';
+    function update(){
+        var u = Unihandecoder(lang.value, true);
+        var result = u.decode(input.value);
+        output.innerText = result;
+    }
+    lang.addEventListener('change', function(){
+        update();
+    });
+    input.addEventListener('keyup', function(){
+        update();
+    });
 </script>
 </body>
 </html>
