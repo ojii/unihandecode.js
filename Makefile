@@ -5,12 +5,13 @@ CHINESE=zhcodepoints.js zhdecoder.js
 KOREAN=krcodepoints.js krdecoder.js
 VIETNAMESE=vncodepoints.js vndecoder.js
 CORE=unihandecode.js unidecoder.js
-CORE_OUTFILE=unihandecode.core.min.js
-COREDATA_OUTFILE=unihandecode.data.min.js
-JA_OUTFILE=unihandecode.ja.min.js
-ZH_OUTFILE=unihandecode.zh.min.js
-KR_OUTFILE=unihandecode.kr.min.js
-VN_OUTFILE=unihandecode.vn.min.js
+OUTDIR=dist/
+CORE_OUTFILE=$(OUTDIR)unihandecode.core.min.js
+COREDATA_OUTFILE=$(OUTDIR)unihandecode.data.min.js
+JA_OUTFILE=$(OUTDIR)unihandecode.ja.min.js
+ZH_OUTFILE=$(OUTDIR)unihandecode.zh.min.js
+KR_OUTFILE=$(OUTDIR)unihandecode.kr.min.js
+VN_OUTFILE=$(OUTDIR)unihandecode.vn.min.js
 COMPRESSOR=yui-compressor
 COMPRESSOR_FLAGS=--type js
 
@@ -35,9 +36,9 @@ vn:
 	cat $(VIETNAMESE) | $(COMPRESSOR) $(COMPRESSOR_FLAGS) > $(VN_OUTFILE)
 
 clean:
-	rm $(CORE_OUTFILE)
-	rm $(DATA_OUTFILE)
-	rm $(JA_OUTFILE)
-	rm $(ZH_OUTFILE)
-	rm $(KR_OUTFILE)
-	rm $(VN_OUTFILE)
+	rm $(RMFLAGS) $(CORE_OUTFILE)
+	rm $(RMFLAGS) $(COREDATA_OUTFILE)
+	rm $(RMFLAGS) $(JA_OUTFILE)
+	rm $(RMFLAGS) $(ZH_OUTFILE)
+	rm $(RMFLAGS) $(KR_OUTFILE)
+	rm $(RMFLAGS) $(VN_OUTFILE)
