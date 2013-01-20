@@ -24,42 +24,53 @@ Development
 
 Include the following scripts (in that order) in your code:
 
-* klass.js
-* pycompat.js
-* data/itaijidict2.pickle.js
-* data/kanadict2.pickle.js
-* data/kanwadict2.db.js
-* unicodepoints.js
-* jacodepoints.js
-* zhcodepoints.js
-* krcodepoints.js
-* vncodepoints.js
-* pykakasi/kanwa.js
-* pykakasi/j2h.js
-* pykakasi/j2a.js
-* pykakasi/k2a.js
-* pykakasi/kakasi.js
-* unidecoder.js
-* jadecoder.js
-* zhdecoder.js
-* krdecoder.js
-* vndecoder.js
-* unihandecode.js
+* src/libs/klass.js
+* src/libs/pycompat.js
+* src/base/unicodepoints.js
+* src/basedecoder.js
+* src/unihandecode.js
+
+For Japanese support:
+
+* src/ja/jskakasi/data/itaijidict2.pickle.js
+* src/ja/jskakasi/data/kanadict2.pickle.js
+* src/ja/jskakasi/data/kanwadict2.db.js
+* src/ja/jskakasi/kanwa.js
+* src/ja/jskakasi/j2h.js
+* src/ja/jskakasi/j2a.js
+* src/ja/jskakasi/k2a.js
+* src/ja/jskakasi/kakasi.js
+* src/ja/jacodepoints.js
+* src/ja/jadecoder.js
+
+For Chinese support:
+
+* src/zh/zhcodepoints.js
+* src/zh/zhdecoder.js
+
+For Korean support:
+
+* src/kr/krcodepoints.js
+* src/kr/krdecoder.js
+
+For Vietnamese support:
+
+* src/vn/vncodepoints.js
+* src/vn/vndecoder.js
 
 Production
 ==========
 
 Include the following:
 
-* unihandecode.data.min.js
-* unihandecode.core.min.js
+* dist/unihandecode.core.min.js
 
 And the languages you need:
 
-* unihandecode.ja.min.js
-* unihandecode.zh.min.js
-* unihandecode.kr.min.js
-* unihandecode.vn.min.js
+* dist/unihandecode.ja.min.js
+* dist/unihandecode.zh.min.js
+* dist/unihandecode.kr.min.js
+* dist/unihandecode.vn.min.js
 
 API
 ===
@@ -96,7 +107,6 @@ Warning: The page is 8MBs big!
 http://ojii.github.com/unihandecode.js/
 
 Please wait for the page to fully load before using it.
-
 
 *******
 License

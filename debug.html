@@ -14,31 +14,32 @@
 <button id="submit" disabled="disabled">convert</button><br >
 <span id="output">Loading... Please wait...</span>
 <!--libraries-->
-<script src="klass.js"></script>
-<script src="pycompat.js"></script>
-<!--data-->
-<script src="data/itaijidict2.pickle.js"></script>
-<script src="data/kanadict2.pickle.js"></script>
-<script src="data/kanwadict2.db.js"></script>
-<!--codepoints-->
-<script src="unicodepoints.js"></script>
-<script src="jacodepoints.js"></script>
-<script src="zhcodepoints.js"></script>
-<script src="krcodepoints.js"></script>
-<script src="vncodepoints.js"></script>
-<!--pykakasi-->
-<script src="pykakasi/kanwa.js"></script>
-<script src="pykakasi/j2h.js"></script>
-<script src="pykakasi/j2a.js"></script>
-<script src="pykakasi/k2a.js"></script>
-<script src="pykakasi/kakasi.js"></script>
-<!--unihandecode-->
-<script src="unidecoder.js"></script>
-<script src="zhdecoder.js"></script>
-<script src="jadecoder.js"></script>
-<script src="vndecoder.js"></script>
-<script src="krdecoder.js"></script>
-<script src="unihandecode.js"></script>
+<script src="src/libs/klass.js"></script>
+<script src="src/libs/pycompat.js"></script>
+<!--core-->
+<script src="src/base/unicodepoints.js"></script>
+<script src="src/basedecoder.js"></script>
+<script src="src/unihandecode.js"></script>
+<!--japanese-->
+<script src="src/ja/jskakasi/data/itaijidict2.pickle.js"></script>
+<script src="src/ja/jskakasi/data/kanadict2.pickle.js"></script>
+<script src="src/ja/jskakasi/data/kanwadict2.db.js"></script>
+<script src="src/ja/jacodepoints.js"></script>
+<script src="src/ja/jskakasi/kanwa.js"></script>
+<script src="src/ja/jskakasi/j2h.js"></script>
+<script src="src/ja/jskakasi/j2a.js"></script>
+<script src="src/ja/jskakasi/k2a.js"></script>
+<script src="src/ja/jskakasi/kakasi.js"></script>
+<script src="src/ja/jadecoder.js"></script>
+<!--chinese-->
+<script src="src/zh/zhcodepoints.js"></script>
+<script src="src/zh/zhdecoder.js"></script>
+<!--korean-->
+<script src="src/kr/krcodepoints.js"></script>
+<script src="src/kr/krdecoder.js"></script>
+<!--vietnamese-->
+<script src="src/vn/vndecoder.js"></script>
+<script src="src/vn/vncodepoints.js"></script>
 <script>
     document.getElementById('input').disabled = false;
     document.getElementById('submit').disabled = false;
