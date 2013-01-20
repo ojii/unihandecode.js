@@ -58,6 +58,11 @@ For Vietnamese support:
 * src/vn/vncodepoints.js
 * src/vn/vndecoder.js
 
+For Diacritic support:
+
+* src/diacritic/diacriticcodepoints.js
+* src/diacritic/diacriticdecoder.js
+
 Production
 ==========
 
@@ -76,10 +81,10 @@ API
 ===
 
 To decode text, you need to create an instance of ``Unihandecoder``. This class
-takes the language ('ja', 'zh', 'kr' or 'vn') as first argument, and optionally
-a flag as second argument which can be set to true for debugging. If debugging
-is enabled, some errors will cause the script to fail, while when debugging is
-turned off, errors fail silently.
+takes the language ('ja', 'zh', 'kr', 'vn' and 'diacritic) as first argument,
+and optionally a flag as second argument which can be set to true for debugging.
+If debugging is enabled, some errors will cause the script to fail, while when
+debugging is turned off, errors fail silently.
 
 Instances of ``Unihandecoder`` have a single method, ``decode``, which takes a
 string as argument and returns the transliterated string.
