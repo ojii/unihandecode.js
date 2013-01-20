@@ -14,7 +14,7 @@ var UnihandecodeJSTests = Klass(unittest.Suite)({
 		self.assertEqual(PY_STR_STRIP(Unihandecoder(lang).decode(original)), output);
 	},
 	'test_japanese': function(self){
-		self.assertDecodes('ja', '日本語', 'NIHONGO');
+		self.assertDecodes('ja', '日本語が話せます', 'NIHONGO ga HANASE masu');
 	},
 	'test_korean': function(self){
 		self.assertDecodes('kr', '한국어', 'hangugeo');

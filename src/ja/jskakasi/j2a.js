@@ -40,9 +40,6 @@ var J2a = Klass()({
 
 	'convert': function(self, text){
 		var tmp, t, l, m, otext, s, n;
-		if (!self._jconv.canConvert(text[0])){
-			return ['', 0];
-		}
 		tmp = self._jconv.convert(text);
 		t = tmp[0];
 		l = tmp[1];

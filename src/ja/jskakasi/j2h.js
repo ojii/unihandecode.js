@@ -49,7 +49,7 @@ var J2H = Klass()({
 
 	'isCletter': function(self, l, c){
 		var ord = c.charCodeAt(0)
-		return ((0x3041 <= ord && ord <= 0x309f) && (l in self._cl_table[ord - 0x3040]));
+		return ((0x3041 <= ord && ord <= 0x309f) && PY_CONTAINS(l, self._cl_table[ord - 0x3040]));
 	},
 
 	'itaiji_conv': function(self, text){
@@ -68,7 +68,7 @@ var J2H = Klass()({
 	},
 
 	'convert': function(self, text){
-		var v, length, tmp, yomi, tail;
+		var v, length, yomi, tail;
 		var max_len = 0;
 		var match_more = false;
 		var Hstr = '';
@@ -85,9 +85,8 @@ var J2H = Klass()({
 			if (text.length >= length){
 				if (PY_STR_STARTSWITH(text, k)){
 					for (var i = 0, l = v.length; i < l; i++){
-						tmp = v[i];
-						yomi = tmp[0];
-						tail = tmp[1];
+						yomi = v[i][0];
+						tail = v[i][1];
 						if (tail.length === 0){
 							if (max_len < length){
 								Hstr = yomi;
@@ -97,7 +96,7 @@ var J2H = Klass()({
 							Hstr = [yomi, text[length]].join('');
 							max_len = length + 1;
 						}
-					}
+					};
 				}
 			}
 		}

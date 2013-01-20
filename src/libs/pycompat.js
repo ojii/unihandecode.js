@@ -25,3 +25,7 @@ function PY_MIN(){
 	}
 	return low;
 }
+
+function PY_CONTAINS(needle, haystack){
+	return haystack.indexOf(needle) !== -1;
+}
