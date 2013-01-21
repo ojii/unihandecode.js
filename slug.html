@@ -169,7 +169,7 @@
     lang.disabled = false;
     output.innerText = '';
     function update(){
-        var u = Unihandecoder(lang.value, true);
+        var u = unihandecode.Unihan(lang.value, true);
         var result = u.decode(input.value);
         output.innerText = URLify(result, result.length);
     }

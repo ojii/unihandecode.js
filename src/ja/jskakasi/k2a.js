@@ -26,26 +26,27 @@
  * Software Foundation Inc., 59 Temple Place - Suite 330, Boston, MA
  * 02111-1307, USA.
  */
+unihandecode.helpers.module('unihandecode.ja.jskakasi', function(scope){
+	scope.K2a = Klass()({
+		'_kanadict': unihandecode.ja.jskakasi.data.KANADICT2,
 
-var K2a = Klass()({
-	'_kanadict': KANADICT2,
+		'canConvert': function(self, c){
+			return (0x3040 < c.charCodeAt(0) && c.charCodeAt(0) < 0x30ff);
+		},
 
-	'canConvert': function(self, c){
-		return (0x3040 < c.charCodeAt(0) && c.charCodeAt(0) < 0x30ff);
-	},
-
-	'convert': function(self, text){
-		var Hstr = '';
-		var max_len = -1;
-		var r = PY_MIN(self._kanadict.maxkeylen, text.length);
-		for (var x = 1; x <= r; x++){
-			if (self._kanadict.hasOwnProperty(text.slice(0, x))){
-				if (max_len < x){
-					max_len = x;
-					Hstr = self._kanadict[text.slice(0, x)];
+		'convert': function(self, text){
+			var Hstr = '';
+			var max_len = -1;
+			var r = unihandecode.helpers.min(self._kanadict.maxkeylen, text.length);
+			for (var x = 1; x <= r; x++){
+				if (self._kanadict.hasOwnProperty(text.slice(0, x))){
+					if (max_len < x){
+						max_len = x;
+						Hstr = self._kanadict[text.slice(0, x)];
+					}
 				}
 			}
+			return [Hstr, max_len];
 		}
-		return [Hstr, max_len];
-	}
+	});
 });

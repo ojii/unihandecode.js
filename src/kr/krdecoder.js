@@ -3,10 +3,12 @@
  Original Copyright: 2010 Hiroshi Miura <miurahr@linux.com>
  Copyright: 2013 Jonas Obrist <ojiidotch@gmail.com>
  */
-var Krdecoder = Klass(BaseDecoder)({
-	'load_codepoints': function(self){
-		PY_DICT_UPDATE(self.codepoints, CODEPOINTS);
-		PY_DICT_UPDATE(self.codepoints, KRCODES);
-	}
+unihandecode.helpers.module('unihandecode.kr', function(scope){
+	scope.Decoder = Klass(unihandecode.BaseDecoder)({
+		'load_codepoints': function(self){
+			unihandecode.helpers.merge_objects(self.codepoints, unihandecode.base.CODEPOINTS);
+			unihandecode.helpers.merge_objects(self.codepoints, unihandecode.kr.CODEPOINTS);
+		}
+	});
+	unihandecode.Unihan.register('kr', scope.Decoder);
 });
-Unihandecoder.register('kr', Krdecoder);

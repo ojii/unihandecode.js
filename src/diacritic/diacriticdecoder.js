@@ -1,7 +1,9 @@
-var DiacriticDecoder = Klass(BaseDecoder)({
-	'load_codepoints': function(self){
-		PY_DICT_UPDATE(self.codepoints, DIACRITICCODES);
-	}
-});
+unihandecode.helpers.module('unihandecode.diacritic', function(scope){
+	scope.Decoder = Klass(unihandecode.BaseDecoder)({
+		'load_codepoints': function(self){
+			unihandecode.helpers.merge_objects(self.codepoints, unihandecode.diacritic.CODEPOINTS);
+		}
+	});
 
-Unihandecoder.register('diacritic', DiacriticDecoder);
+	unihandecode.Unihan.register('diacritic', scope.Decoder);
+});

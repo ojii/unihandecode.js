@@ -26,42 +26,42 @@
  * Software Foundation Inc., 59 Temple Place - Suite 330, Boston, MA
  * 02111-1307, USA.
  */
+unihandecode.helpers.module('unihandecode.ja.jskakasi', function(scope){
+	scope.J2a = Klass()({
+		'__init__': function(self){
+			self._jconv = unihandecode.ja.jskakasi.J2H();
+			self._kconv = unihandecode.ja.jskakasi.K2a();
+		},
 
+		'canConvert': function(self, character){
+			return self._jconv.canConvert(character);
+		},
 
-var J2a = Klass()({
-	'__init__': function(self){
-		self._jconv = J2H();
-		self._kconv = K2a();
-	},
-
-	'canConvert': function(self, character){
-		return self._jconv.canConvert(character);
-	},
-
-	'convert': function(self, text){
-		var tmp, t, l, m, otext, s, n;
-		tmp = self._jconv.convert(text);
-		t = tmp[0];
-		l = tmp[1];
-		if (l <= 0){
-			return ['', 0];
-		}
-		m = 0;
-		otext = '';
-		while (true){
-			if (m >= t.length){
-				break;
+		'convert': function(self, text){
+			var tmp, t, l, m, otext, s, n;
+			tmp = self._jconv.convert(text);
+			t = tmp[0];
+			l = tmp[1];
+			if (l <= 0){
+				return ['', 0];
 			}
-			tmp = self._kconv.convert(t.slice(m));
-			s = tmp[0];
-			n = tmp[1];
-			if (n <= 0){
-				m++;
-			} else {
-				m = m + n;
-				otext = otext + s;
+			m = 0;
+			otext = '';
+			while (true){
+				if (m >= t.length){
+					break;
+				}
+				tmp = self._kconv.convert(t.slice(m));
+				s = tmp[0];
+				n = tmp[1];
+				if (n <= 0){
+					m++;
+				} else {
+					m = m + n;
+					otext = otext + s;
+				}
 			}
+			return [otext, l];
 		}
-		return [otext, l];
-	}
+	});
 });

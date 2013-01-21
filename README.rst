@@ -25,7 +25,7 @@ Development
 Include the following scripts (in that order) in your code:
 
 * src/libs/klass.js
-* src/libs/pycompat.js
+* src/libs/helpers.js
 * src/base/unicodepoints.js
 * src/basedecoder.js
 * src/unihandecode.js
@@ -80,26 +80,26 @@ And the languages you need:
 API
 ===
 
-To decode text, you need to create an instance of ``Unihandecoder``. This class
+To decode text, you need to create an instance of ``unihandecode.Unihan``. This class
 takes the language ('ja', 'zh', 'kr', 'vn' and 'diacritic) as first argument,
 and optionally a flag as second argument which can be set to true for debugging.
 If debugging is enabled, some errors will cause the script to fail, while when
 debugging is turned off, errors fail silently.
 
-Instances of ``Unihandecoder`` have a single method, ``decode``, which takes a
+Instances of ``unihandecode.Unihan`` have a single method, ``decode``, which takes a
 string as argument and returns the transliterated string.
 
-For example to create a ``Unihandecoder`` instance for Japanese::
+For example to create a ``unihandecode.Unihan`` instance for Japanese::
 
-    var u = Unihandecoder('ja');
+    var u = unihandecode.Unihan('ja');
 
 You can now call ``decode`` on it with a string to transliterate, for example::
 
     u.decode('ヨナス') // -> 'yonasu'
 
 
-If you want to register other languages, use ``Unihandecoder.register`` which
-takes the language code as first argument, and a subclass of ``Unidecoder`` as
+If you want to register other languages, use ``unihandecode.Unihan.register`` which
+takes the language code as first argument, and a subclass of ``unihandecode.BaseDecoder`` as
 second argument.
 
 
@@ -107,7 +107,7 @@ second argument.
 Demo
 ****
 
-Warning: The page is 8MBs big!
+Warning: The page is 2MB big (8 if your browser doesn't support gzip)!
 
 http://ojii.github.com/unihandecode.js/
 

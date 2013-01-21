@@ -26,55 +26,57 @@
  * Software Foundation Inc., 59 Temple Place - Suite 330, Boston, MA
  * 02111-1307, USA.
  */
-var kakasi = Klass()({
-	'__init__': function(self){
-		self._conv = {
-			'j': J2a(),
-			'k': K2a()
-		};
-	},
+unihandecode.helpers.module('unihandecode.ja.jskakasi', function(scope){
+	scope.kakasi = Klass()({
+		'__init__': function(self){
+			self._conv = {
+				'j': unihandecode.ja.jskakasi.J2a(),
+				'k': unihandecode.ja.jskakasi.K2a()
+			};
+		},
 
-	'convert': function(self, text){
-		var tmp, t, l;
-		var otext = '';
-		var i = 0;
-		while (true){
-			if (i >= text.length){
-				break;
-			}
-			if (self._conv.j.canConvert(text[i])){
-				tmp = self._conv.j.convert(text.slice(i));
-				t = tmp[0];
-				l = tmp[1];
-				if (l <= 0){
-					i++;
-					continue
-				}
-				i = i + l;
+		'convert': function(self, text){
+			var tmp, t, l;
+			var otext = '';
+			var i = 0;
+			while (true){
 				if (i >= text.length){
-					otext = otext + t.toUpperCase();
-				} else {
-					otext = otext + t.toUpperCase() + ' ';
+					break;
 				}
-			} else if (self._conv.k.canConvert(text[i])){
-				while (true){
-					tmp = self._conv.k.convert(text.slice(i));
+				if (self._conv.j.canConvert(text[i])){
+					tmp = self._conv.j.convert(text.slice(i));
 					t = tmp[0];
 					l = tmp[1];
-					otext = otext + t;
-					i++;
-					if (i >= text.length){
-						break;
-					} else if (!self._conv.k.canConvert(text[i])){
-						otext = otext + ' ';
-						break;
+					if (l <= 0){
+						i++;
+						continue
 					}
+					i = i + l;
+					if (i >= text.length){
+						otext = otext + t.toUpperCase();
+					} else {
+						otext = otext + t.toUpperCase() + ' ';
+					}
+				} else if (self._conv.k.canConvert(text[i])){
+					while (true){
+						tmp = self._conv.k.convert(text.slice(i));
+						t = tmp[0];
+						l = tmp[1];
+						otext = otext + t;
+						i++;
+						if (i >= text.length){
+							break;
+						} else if (!self._conv.k.canConvert(text[i])){
+							otext = otext + ' ';
+							break;
+						}
+					}
+				} else {
+					otext = otext + text[i];
+					i++;
 				}
-			} else {
-				otext = otext + text[i];
-				i++;
 			}
+			return otext;
 		}
-		return otext;
-	}
+	});
 });

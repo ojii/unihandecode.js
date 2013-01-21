@@ -16,7 +16,7 @@
 <span id="output">Loading... Please wait...</span>
 <!--libraries-->
 <script src="src/libs/klass.js"></script>
-<script src="src/libs/pycompat.js"></script>
+<script src="src/libs/helpers.js"></script>
 <!--core-->
 <script src="src/base/unicodepoints.js"></script>
 <script src="src/basedecoder.js"></script>
@@ -52,7 +52,7 @@
     lang.disabled = false;
     output.innerText = '';
     function update(){
-        var u = Unihandecoder(lang.value, true);
+        var u = unihandecode.Unihan(lang.value, true);
         var result = u.decode(input.value);
         output.innerText = result;
     }

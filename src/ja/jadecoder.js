@@ -3,16 +3,18 @@
  Original Copyright: 2010 Hiroshi Miura <miurahr@linux.com>
  Copyright: 2013 Jonas Obrist <ojiidotch@gmail.com>
  */
-var Jadecoder = Klass(BaseDecoder)({
-	'load_codepoints': function(self){
-		PY_DICT_UPDATE(self.codepoints, JACODES);
-		self.kakasi = kakasi();
-	},
-	'decode': function(self, text){
-		var result = self.kakasi.convert(text);
-		return result.replace(/[^\x00-\x7f]/, function(x){
-			return self.replace_point(x);
-		});
-	}
+unihandecode.helpers.module('unihandecode.ja.decoder', function(scope){
+	scope.Decoder = Klass(unihandecode.BaseDecoder)({
+		'load_codepoints': function(self){
+			unihandecode.helpers.merge_objects(self.codepoints, unihandecode.ja.codepoints.CODEPOINTS);
+			self.kakasi = unihandecode.ja.jskakasi.kakasi();0
+		},
+		'decode': function(self, text){
+			var result = self.kakasi.convert(text);
+			return result.replace(/[^\x00-\x7f]/, function(x){
+				return self.replace_point(x);
+			});
+		}
+	});
+	unihandecode.Unihan.register('ja', scope.Decoder);
 });
-Unihandecoder.register('ja', Jadecoder);
