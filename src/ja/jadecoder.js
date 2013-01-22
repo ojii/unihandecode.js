@@ -6,7 +6,7 @@
 unihandecode.helpers.module('unihandecode.ja.decoder', function(scope){
 	scope.Decoder = Klass(unihandecode.BaseDecoder)({
 		'load_codepoints': function(self){
-			unihandecode.helpers.merge_objects(self.codepoints, unihandecode.ja.codepoints.CODEPOINTS);
+			unihandecode.helpers.merge_objects(self.codepoints, unihandecode.ja.CODEPOINTS);
 			self.kakasi = unihandecode.ja.jskakasi.kakasi();0
 		},
 		'decode': function(self, text){
