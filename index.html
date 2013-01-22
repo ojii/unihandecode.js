@@ -28,7 +28,7 @@
     lang.disabled = false;
     output.innerText = '';
     function update(){
-        var u = unihandecode.Unihan(lang.value, true);
+        var u = unihandecode.Unihan(lang.value, false);
         var result = u.decode(input.value);
         output.innerText = result;
     }
