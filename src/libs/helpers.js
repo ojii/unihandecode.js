@@ -4,8 +4,8 @@
  */
 var unihandecode = unihandecode || {};
 unihandecode.helpers = {};
-unihandecode.helpers.module = function(name, scope){
-	var tmp = {};
+unihandecode.helpers.module = function(name, callback){
+	var scope = {};
 	var current = window;
 	var bits = name.split('.');
 	while (bits.length){
@@ -15,20 +15,20 @@ unihandecode.helpers.module = function(name, scope){
 		}
 		current = current[name];
 	}
-	scope(tmp);
-	unihandecode.helpers.merge_objects(current, tmp);
+	callback(scope);
+	unihandecode.helpers.merge_objects(current, scope);
 }
 
-unihandecode.helpers.merge_objects = function(a, b){
-	for (var key in b){
-		if (b.hasOwnProperty(key)){
-			a[key] = b[key];
+unihandecode.helpers.merge_objects = function(base, other){
+	for (var key in other){
+		if (other.hasOwnProperty(key)){
+			base[key] = other[key];
 		}
 	}
 };
 
-unihandecode.helpers.startswith = function(s, w){
-	return s.indexOf(w) === 0;
+unihandecode.helpers.startswith = function(string, prefix){
+	return string.indexOf(prefix) === 0;
 };
 
 unihandecode.helpers.min = function(){

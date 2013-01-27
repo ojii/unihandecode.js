@@ -10,5 +10,5 @@ unihandecode.helpers.module('unihandecode.kr', function(scope){
 			unihandecode.helpers.merge_objects(self.codepoints, unihandecode.kr.CODEPOINTS);
 		}
 	});
-	unihandecode.Unihan.register('kr', scope.Decoder);
+	unihandecode.register_decoder('kr', scope.Decoder);
 });

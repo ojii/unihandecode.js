@@ -16,5 +16,5 @@ unihandecode.helpers.module('unihandecode.ja.decoder', function(scope){
 			});
 		}
 	});
-	unihandecode.Unihan.register('ja', scope.Decoder);
+	unihandecode.register_decoder('ja', scope.Decoder);
 });

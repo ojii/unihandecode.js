@@ -53,13 +53,13 @@ var UnihandecodeJSTests = Klass(unittest.Suite)({
 				return 'TEST';
 			}
 		});
-		unihandecode.Unihan.register('TEST', TestDecoder)
+		unihandecode.register_decoder('TEST', TestDecoder)
 		try {
 			var u = unihandecode.Unihan('TEST');
 			var output = u.decode('日本語');
 			self.assertEqual(output, 'TEST');
 		} finally {
-			delete unihandecode.Unihan.decoders['TEST'];
+			unihandecode.unregister_decoder('TEST');
 		}
 	}
 });

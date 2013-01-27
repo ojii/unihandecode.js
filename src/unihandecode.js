@@ -4,19 +4,19 @@
  Copyright: 2013 Jonas Obrist <ojiidotch@gmail.com>
  */
 unihandecode.helpers.module('unihandecode', function(scope){
+	var decoders = {};
 	scope.Unihan = Klass()({
-		'decoders': {},
 		'__init__': function(self, lang, debug){
 			var debug = debug || false;
-			var klass = self.decoders[lang];
+			var klass = decoders[lang];
 			if (!klass){
-				var decoders = [];
-				for (var attr in self.decoders){
-					if (self.decoders.hasOwnProperty(attr)){
-						decoders.push(attr);
+				var tmp = [];
+				for (var attr in decoders){
+					if (decoders.hasOwnProperty(attr)){
+						tmp.push(attr);
 					}
 				}
-				throw Error("'" + lang + "' is not a supported language, supported languages are: " + decoders.join(','));
+				throw Error("'" + lang + "' is not a supported language, supported languages are: " + tmp.join(','));
 
 			}
 			self.decoder = klass(debug);
@@ -26,9 +26,12 @@ unihandecode.helpers.module('unihandecode', function(scope){
 			return self.decoder.decode(text);
 		}
 	});
-
-	scope.Unihan.register = function(lang, decoder){
-		scope.Unihan.decoders[lang] = decoder;
+	scope.register_decoder = function(lang, decoder){
+		decoders[lang] = decoder;
 	};
-
+	scope.unregister_decoder = function(lang){
+		if (decoders.hasOwnProperty(lang)){
+			delete decoders[lang];
+		}
+	};
 });

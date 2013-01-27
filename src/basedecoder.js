@@ -19,9 +19,9 @@ unihandecode.helpers.module('unihandecode', function(scope){
 			});
 		},
 
-		'replace_point': function(self, codepoint){
+		'replace_point': function(self, character){
 			try {
-				return self.codepoints[self.code_group(codepoint)][self.grouped_point(codepoint)];
+				return self.codepoints[self.code_group(character)][self.grouped_point(character)];
 			} catch (e){
 				if (self.debug){
 					throw e;

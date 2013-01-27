@@ -5,5 +5,5 @@ unihandecode.helpers.module('unihandecode.diacritic', function(scope){
 		}
 	});
 
-	unihandecode.Unihan.register('diacritic', scope.Decoder);
+	unihandecode.register_decoder('diacritic', scope.Decoder);
 });

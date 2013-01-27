@@ -10,5 +10,5 @@ unihandecode.helpers.module('unihandecode.vn', function(scope){
 			unihandecode.helpers.merge_objects(self.codepoints, unihandecode.vn.CODEPOINTS);
 		}
 	});
-	unihandecode.Unihan.register('vn', scope.Decoder);
+	unihandecode.register_decoder('vn', scope.Decoder);
 });
