@@ -31,7 +31,8 @@ unihandecode.helpers.module('unihandecode.ja.jskakasi', function(scope){
 		'_kanadict': unihandecode.ja.jskakasi.data.KANADICT2,
 
 		'canConvert': function(self, c){
-			return (0x3040 < c.charCodeAt(0) && c.charCodeAt(0) < 0x30ff);
+			return ((0x3040 < c.charCodeAt(0) && c.charCodeAt(0) < 0x3097)
+			      || (0x30a0 < c.charCodeAt(0) && c.charCodeAt(0) < 0x30fd));
 		},
 
 		'convert': function(self, text){
