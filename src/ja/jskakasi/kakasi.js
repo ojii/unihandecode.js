@@ -67,7 +67,10 @@ unihandecode.helpers.module('unihandecode.ja.jskakasi', function(scope){
 						if (i >= text.length){
 							break;
 						} else if (!self._conv.k.canConvert(text[i])){
-							otext = otext + ' ';
+							if (text.charCodeAt(i) != 0x3001
+							 && text.charCodeAt(i) != 0x3002){
+								otext = otext + ' ';
+							}
 							break;
 						}
 					}
