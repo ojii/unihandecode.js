@@ -62,6 +62,10 @@ unihandecode.helpers.module('unihandecode.ja.jskakasi', function(scope){
 						tmp = self._conv.k.convert(text.slice(i));
 						t = tmp[0];
 						l = tmp[1];
+						if (l <= 0){
+							i++;
+							continue
+						}
 						otext = otext + t;
 						i++;
 						if (i >= text.length){
